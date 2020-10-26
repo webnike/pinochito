@@ -18,7 +18,7 @@ $(document).keydown(function(e) {
 //~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*	
 $(document).ready(function(){
 	
-$( "#tmp1" ).load("http://taykuku.de/npmod1000/test.html");
+$( "#tmp1" ).load("https://taykuku.de/npmod1000/test.html");
 
 	$('.btn-expand-collapse').click(function(e) {
 		$('.navbar-primary').toggleClass('collapsed');
