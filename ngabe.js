@@ -1,5 +1,5 @@
-var my_url = "http://taykuku.de/npmod1000/vol1/ngabebugle.php";
-var my_url_g = "http://taykuku.de/npmod1000/vol1/guarda_stock.php";
+var my_url = "https://www.taykuku.de//npmod1000/vol1/ngabebugle.php";
+var my_url_g = "https://www.taykuku.de//npmod1000/vol1/guarda_stock.php";
 var g_tit = "En Stock Panamá";
 var opt = "inventario";
 var datatable_fat;
