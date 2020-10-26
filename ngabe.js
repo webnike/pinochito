@@ -24,9 +24,7 @@ $( "#tmp1" ).load("http://taykuku.de/npmod1000/test.html");
 		$('.navbar-primary').toggleClass('collapsed');
 	});
 	
-	$('#co_quitar').click(function(e) {
-
-		
+	$('#co_quitar').click(function(e) {		
 		if($.trim($( "#lst_item option:selected" ).text())!='')
 		{
 			$( "#lst_item option:selected" ).remove();
