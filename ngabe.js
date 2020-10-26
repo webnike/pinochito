@@ -4,6 +4,7 @@ var g_tit = "En Stock Panamá";
 var opt = "inventario";
 var datatable_fat;
 var bandera = 0;
+
 //~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
 $(document).keydown(function(e) {
 
