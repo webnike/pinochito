@@ -1,0 +1,141 @@
+<!doctype html>
+<html amp lang="en">
+  <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+		<meta http-equiv="cache-control" content="max-age=0" />
+		<meta http-equiv="cache-control" content="no-cache" />
+		<meta http-equiv="expires" content="0" />
+		<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+		<meta http-equiv="pragma" content="no-cache" />
+		<title>VOCABULARIO NGABE-BUGLE  | Software TayKuku LLC</title>
+
+		<script async src="https://cdn.ampproject.org/v0.js"></script>
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="images/favicon.ico">
+		
+		<!-- Jquery and Bootstap core js files -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>		
+		
+		<!-- DataTables -->
+		<script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"/>
+
+		<!--Para mensajes de dialogo de casa inmobiliaria-->
+		<script src="/lib/syn_util.js" ></script>
+		
+		<!--Para animar la casa inmobiliaria-->
+		<script src="ngabe.js" ></script>
+	<style>
+
+	</style>
+	</head>
+	<body>
+<br>
+
+<div id="dv_lista" class="container">
+	<div class = "panel panel-info">
+		<div class = "panel-heading">
+			<div class="row">
+				<div class="col-xs-9 col-sm-9 col-md-9">
+				 <h3 class = "panel-title">Vocabulario NGÄBERE</h3>
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3">
+				 <button type="button" id="btn_add" class="imgpopop btn btn-warning btn-sm">Nuevo</button>
+				</div>
+			 
+			</div>
+	   </div>
+	   <div class = "panel-body">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<table id="example" class="table table-striped">
+						<thead>
+						  <tr class="row">
+								<th class="col-4 col-md-4 col-sm-4 col-lg-4">Ngäbere</th>
+								<th class="col-6 col-md-6 col-sm-6 col-lg-6">Español</th>
+								<td class="col-2 col-md-2 col-sm-2 col-lg-2"></td>
+						 </tr>
+						</thead>
+						<tbody id="bookContainer">
+						</tbody>
+						</table>						
+					</div>
+				</div>
+		</div>
+	</div>
+</div>
+<script id="bookTemplate" type="text/x-jQuery-tmpl">	
+	<tr id="td_${id}" class="row">
+			<td class="col-xs-4 col-sm-4 col-md-4">${nagbe}</td>
+			<td class="col-xs-6 col-sm-6 col-md-6">${espanio}</td>
+			<td class="col-xs-2 col-sm-2 col-md-2"><button id="_check" onclick="fn_check_in('${id}');" type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-plus"></span></button></td>
+	</tr>
+</script>
+
+		
+        <div id="div_msg_bts" class="modal fade" role="dialog" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title" id="tx_tit_mensaje"></h4>
+					</div>
+					<div class="modal-body">
+						<form role="form">
+							<div class="form-group">
+								<div class="form-control-label"></div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn " data-dismiss="modal" autofocus><span class=''></span>Ok</button>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div id="div_chechout_bts" class="modal fade" role="dialog" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title" id="tx_tit_mensaje">Detalle de Palabra</h4>
+					</div>
+					<div class="modal-body">					
+								<form role="form">
+									<div class="form-group">
+										<label class="control-label col-sm-2">Ngabe:</label>
+										<div class="col-sm-10"> 
+											<input type="text" class="form-control" id="tx_ngabe"  >
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-2">Español:</label>
+										<div class="col-sm-10"> 
+											<input type="text" class="form-control" id="tx_espanio"  >
+										</div>
+									</div>	
+									<div class="form-group">
+										<label class="control-label col-sm-2">Descripción:</label>
+										<div class="col-sm-10"> 
+											<input type="text" class="form-control" id="tx_modelo" readonly >
+										</div>
+									</div>
+								</form>
+
+					</div>
+					<div class="modal-footer">						
+						<button id="btn_checkout" type="button" class="btn btn-default" data-dismiss="modal" autofocus><span class="glyphicon glyphicon-ok"></span> Guardar</button>
+						<button class="btn btn-default"  type="button"  data-dismiss="modal" id="co_cancelar"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	<input type="hidden" id="tx_id_parking" name="tx_id_parking" value="">
+	<input type="hidden" id="tx_numero" name="tx_numero" value="">	
+	<input type="hidden" id="tx_check_in_out" name="tx_check_in_out" value="">
+
+	</body>
+</html>
