@@ -1,81 +1,520 @@
-<!doctype html>
-<html amp lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-		<meta http-equiv="cache-control" content="max-age=0" />
-		<meta http-equiv="cache-control" content="no-cache" />
-		<meta http-equiv="expires" content="0" />
-		<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
-		<meta http-equiv="pragma" content="no-cache" />
-		<title>VOCABULARIO NGABE-BUGLE  | Software TayKuku LLC</title>
-<!--
-		<script async src="https://cdn.ampproject.org/v0.js"></script>
-		 Favicon 
-		<link rel="shortcut icon" href="images/favicon.ico">-->
-		
-		<!-- Jquery and Bootstap core js files -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>		
-		
-		<!-- DataTables -->
-		<script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=10">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="cache-control" content="max-age=0">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Stock Panamá</title>
 
-		<!--Para mensajes de dialogo de casa inmobiliaria-->
-		<script src="syn_util.js" ></script>
-		
-		<!--Para animar la casa inmobiliaria-->
-		<script src="ngabe.js" ></script>
-	<style>
+	<!-- Jquery -->
+	<script src="http://taykuku.de/jquery/jquery-3.1.1.min.js"></script>
+	<script src="http://taykuku.de/jquery/jquery.tmpl.js"></script>
+	<!-- DataTables -->
+	<script type="text/javascript" src="http://taykuku.de/datatables/datatables.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://taykuku.de/datatables/datatables.min.css"/>
+	<!-- Boostrap -->
+	<script src="http://taykuku.de/bootstrap/v3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="http://taykuku.de/bootstrap/v3.3.7/css/bootstrap.min.css">
 
+	<script src="ngabe.js"></script>
+	<style class="cp-pen-styles">
+
+	body
+	{
+		color:#000000;
+	}
+	.navbar-global
+	{
+	  background-color: #343a40;
+	}
+
+	.navbar-global .navbar-brand {
+	  color:#CAAD00;
+	}
+
+	.navbar-global .navbar-user > li > a
+	{
+	  color:#CAAD00;
+	}
+
+	.navbar-primary
+	{
+	  background-color: #333;
+	  bottom: 0px;
+	  color::#CAAD00;
+	  left: 0px;
+	  position: absolute;
+	  top: 51px;
+	  width: 200px;
+	  height: 1000px;
+	  z-index: 8;
+	  overflow: hidden;
+	  -webkit-transition: all 0.1s ease-in-out;
+	  -moz-transition: all 0.1s ease-in-out;
+	  transition: all 0.1s ease-in-out;
+	}
+
+	.navbar-primary.collapsed
+	{
+	  width: 60px;
+	}
+
+	.navbar-primary.collapsed .glyphicon
+	{
+	  font-size: 22px;
+	}
+
+	.navbar-primary.collapsed .nav-label
+	{
+	  display: none;
+	}
+
+	.btn-expand-collapse
+	{
+		position: absolute;
+		display: block;
+		left: 0px;
+		bottom:0;
+		width: 100%;
+		padding: 8px 0;
+		border-top:solid 1px #666;
+		color: grey;
+		font-size: 20px;
+		text-align: center;
+	}
+
+	.btn-expand-collapse:hover,
+	.btn-expand-collapse:focus {
+		background-color: #222;
+		color: white;
+	}
+
+	.btn-expand-collapse:active
+	{
+		background-color: #111;
+	}
+
+	.navbar-primary-menu,
+	.navbar-primary-menu li {
+	  margin:0; padding:0;
+	  list-style: none;
+	}
+
+	.navbar-primary-menu li a
+	{
+	  display: block;
+	  padding: 10px 18px;
+	  text-align: left;
+	  border-bottom:solid 1px #444;
+	  color:#CAAD00;
+	}
+
+	.navbar-primary-menu li a:hover
+	{
+	  background-color: #000;
+	  text-decoration: none;
+	  color: #000000;
+	}
+	.navbar-primary-menu li a:active
+	{
+	  background-color: #000;
+	  text-decoration: none;
+	  color: #ffffff;
+	}
+
+	.navbar-primary-menu li a .glyphicon
+	{
+	  margin-right: 6px;
+	}
+
+	.navbar-primary-menu li a:hover .glyphicon
+	{
+	  color: #ffffff;
+	}
+
+	.main-content
+	{
+	  margin-top: 60px;
+	  margin-left: 200px;
+	  padding: 20px;
+	}
+
+	/*Mobiles standar*/
+	@media screen and (max-width: 600px)
+	{
+		.collapsed + .main-content {
+		  margin-left: 60px;
+		}
+		div#dv_form-group {padding-left:15px;}
+	div.div_img_bts > div.modal-dialog 
+		{
+			position:absolute;
+			top: 40%;
+			left: 30%;
+			margin: 0 auto;
+			width:500px;
+			height:500px !important;
+		}
+		div.div_msg_bts > div.modal-dialog 
+		{
+			position:absolute;
+			-webkit-transform: translate(0,-50%);
+			-o-transform: translate(0,-50%);
+			transform: translate(0,-50%);
+			top: 40%;
+			left: 10%;
+			width: 250px;
+			height:200px !important;
+			margin: 0 auto;
+		}
+	}
+
+	/*Mobiles grandes y tabletas*/
+	@media only screen and (min-width: 600px)
+	{
+		.collapsed + .main-content {
+		  margin-left: 60px;
+		}
+		div#dv_form-group {padding-left:17px;}
+	div.div_img_bts > div.modal-dialog 
+		{
+			position:absolute;
+			top: 40%;
+			left: 30%;
+			margin: 0 auto;
+			width:500px;
+			height:500px !important;
+		}
+		div.div_msg_bts > div.modal-dialog 
+		{
+			position:absolute;
+			-webkit-transform: translate(0,-50%);
+			-o-transform: translate(0,-50%);
+			transform: translate(0,-50%);
+			top: 40%;
+			left: 10%;
+			margin: 0 auto;
+			width: 250px;
+			height:200px !important;
+		}
+	}
+
+	/*Laptop pantalla normales 15" */
+	@media only screen and (min-width: 992px)
+	{
+		.collapsed + .main-content {
+		  margin-left: 60px;
+		}
+
+		div#dv_form-group {padding-left:170px;}
+	div.div_img_bts > div.modal-dialog 
+		{
+			position:absolute;
+			top: 40%;
+			left: 30%;
+			margin: 0 auto;
+			width:500px;
+			height:500px !important;
+		}
+		div.div_msg_bts > div.modal-dialog 
+		{
+			position:absolute;
+			-webkit-transform: translate(0,-50%);
+			-o-transform: translate(0,-50%);
+			transform: translate(0,-50%);
+			top: 40%;
+			left: 50%;
+			width: 250px;
+			height:200px !important;
+			margin: 0 auto;
+
+		}
+	}
+
+	/*Laptop pantalla grande*/
+	@media only screen and (min-width: 1200px)
+	{
+		.main-content {
+		  margin-left: 60px;
+		}
+
+		div#dv_form-group {
+			padding-left:205px;
+		}
+	div.div_img_bts > div.modal-dialog 
+		{
+			position:absolute;
+			top: 40%;
+			left: 30%;
+			margin: 0 auto;
+			width:500px;
+			height:500px !important;
+		}
+		div.div_msg_bts > div.modal-dialog 
+		{
+			position:absolute;
+			top: 40%;
+			left: 100%;
+			width: 250px;
+			height:200px !important;
+			margin: 0 auto;
+
+		}
+	}
+	.table-striped>tbody>tr:nth-of-type(odd) 
+	{
+		background-color:#FAFAD2;
+	}
+	.panel-default>.panel-heading
+		{
+			color: #CAAD00;
+			background-color: #343a40;
+		}
+		.form-group button
+		{
+			width:115px;
+		}
+	div.div_img_bts > div.modal-dialog 
+		{
+			position:absolute;
+			top: 40%;
+			left: 30%;
+			margin: 0 auto;
+			width:500px;
+			height:500px !important;
+		}
+		
+		div.div_msg_bts > div.modal-dialog 
+		{
+			position:absolute;
+			top: 40%;
+			left: 30%;
+			margin: 0 auto;
+			width: 250px;
+			height:340px !important;
+		}
+		.modal-content
+		{
+			/* 80% of window height */
+			height: 60%;
+			background-color:#ffffff;
+		}  
+		.modal-header
+		{
+			background-color: #343a40;
+			padding:16px 16px;
+			color:#FFF;
+			border-bottom:2px #337AB7;
+		 }
+		 #example_filter
+		 {
+		 display:none
+		 }
 	</style>
-	</head>
-	<body>
-<br>
-
-<div id="dv_lista" class="container">
-	<div class = "panel panel-info">
-		<div class = "panel-heading">
-			<div class="row">
-				<div class="col-xs-9 col-sm-9 col-md-9">
-				 <h3 class = "panel-title">Vocabulario NGÄBERE</h3>
-				</div>
-				<div class="col-xs-3 col-sm-3 col-md-3">
-				 <button type="button" id="btn_add" class="imgpopop btn btn-warning btn-sm">Nuevo</button>
-				</div>
-			 
+</head>
+  <body >
+<nav class="navbar navbar-inverse navbar-global navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header" >
+		<!--<form class="form-horizontal" id="div_prim0">
+			<div class="form-group" >	
+			
+				<div class="col-sm-2">
+					<a class="navbar-brand" href="order_consul.html">Buscar:</a> 	
+				</div>		  
+				<div class="col-10 col-md-10 col-sm-10 col-lg-10">-->
+					<input id="tx_busca" type="text" class="form-control" style="margin-left:60px;margin-top:10px;margin-right:100px;width:350px" placeholder="Buscar">
+			<!--	</div>
 			</div>
-	   </div>
-	   <div class = "panel-body">
-				<div class="row">
-					<div class="col-xs-12 col-sm-12 col-md-12">
-						<table id="example" class="table table-striped">
-						<thead>
-						  <tr class="row">
-								<th class="col-4 col-md-4 col-sm-4 col-lg-4">Ngäbere</th>
-								<th class="col-6 col-md-6 col-sm-6 col-lg-6">Español</th>
-								<td class="col-2 col-md-2 col-sm-2 col-lg-2"></td>
-						 </tr>
-						</thead>
-						<tbody id="bookContainer">
-						</tbody>
-						</table>						
-					</div>
-				</div>
-		</div>
-	</div>
-</div>
-<script id="bookTemplate" type="text/x-jQuery-tmpl">	
-	<tr id="td_${id}" class="row">
-			<td class="col-xs-4 col-sm-4 col-md-4">${nagbe}</td>
-			<td class="col-xs-6 col-sm-6 col-md-6">${espanio}</td>
-			<td class="col-xs-2 col-sm-2 col-md-2"><button id="_check" onclick="fn_check_in('${id}');" type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-plus"></span></button></td>
-	</tr>
-</script>
+		</form>-->
+        </div>
+      </div>
+    </nav>
+	<nav class="navbar-primary collapsed">
+  <a href="#" class="btn-expand-collapse" aria-expanded="false"><span class="glyphicon glyphicon-menu-left"></span></a>
+	  <ul class="navbar-primary-menu">
+		<li>
+		<div>-</div>
+			<a onclick="fn_gridPanel();" href="#" title="Bandeja Productos"><span class="glyphicon glyphicon-home"></span><span class="nav-label">Inventario</span></a>
+			<a onclick="fn_ord_reg();" href="#" title="Registrar Producto"><span class="glyphicon glyphicon-inbox"></span><span class="nav-label">Producto</span></a>
+			<!--<a onclick="fn_ord_sucurcal();" href="#" title="Registrar Sucursal"><span class="glyphicon glyphicon-th"></span><span class="nav-label">Sucursal</span></a>
+			<a onclick="fn_ord_proveedor();" href="#" title="Registrar Proveedor"><span class="glyphicon glyphicon-home"></span><span class="nav-label">Proveedor</span></a>
+			<a onclick="fn_ord_exportar();" href="#" title="Enviar Producto a cliente"><span class="glyphicon glyphicon-triangle-top"></span><span class="nav-label">Exportar</span></a>			-->
+			<a onclick="fn_ord_solclient();" href="#" title="Solicitud de Clientes"><span class="glyphicon glyphicon-shopping-cart"></span><span class="nav-label">Pedidos</span></a>
+			<!--<a onclick="fn_ord_pediprovee();" href="#" title="Ordenar pedido a proveedor"><span class="glyphicon glyphicon-list"></span><span class="nav-label">Ordenes</span></a>-->
+		</li>
+	  </ul>
+	</nav>
 
-		
+	<div class="main-content">
+		<div id="dv_lista" class="container">
+			<table id="example" class="table table-striped">
+			<thead>
+			  <tr>
+				<th class="col-4 col-md-4 col-sm-4 col-lg-4">Nagebere</th>
+				<th class="col-4 col-md-4 col-sm-4 col-lg-4">Español</th>
+				<th class="col col-md col-sm col-lg"></th>
+				<!--<th class="col-2 col-md-2 col-sm-2 col-lg-2"></th>-->
+			  </tr>
+			</thead>
+			<tbody id="bookContainer">
+			</tbody>
+			</table>
+
+		</div>
+		<div id="dv_form" class="container" style="display: none;">
+			<br>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<!--<div id="div_mod1" style="font-size: 14px;text-align: center;">Ingrese los</div>-->
+					<div id="div_tit1" style="font-size: 15px;text-align: center;"><b>Mis Palabras</b></div>
+				</div>
+				<div class="panel-body">
+					<br>
+					<form class="form-horizontal" id="div_prim">
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="tx_espaniol">Español:</label>
+						<div class="col-sm-10"> 
+							<input type="text" class="form-control" id="tx_espaniol" placeholder="Nombre">
+						</div>
+					</div>							
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="tx_ngabere">Ngabere:</label>
+						<div class="col-sm-10"> 
+							<input type="text" class="form-control" id="tx_ngabere" placeholder="Describa el producto">
+						</div>
+					</div>					
+					<!--
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="tx_pro_cantidad">Cantidad:</label>
+						<div class="col-sm-10"> 
+						<input type="text" class="form-control" id="tx_pro_cantidad" placeholder="Cantidad Almacén">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="tx_pro_precio">Precio Venta:</label>
+						<div class="col-sm-10"> 
+						<input type="text" class="form-control" id="tx_pro_precio" placeholder="Precio a cliente">
+						</div>
+					</div>					
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="tx_pro_suc">Sucursales:</label>
+						<div class="col-sm-10"> 
+						<textarea class="form-control" rows="3" id="tx_pro_suc" placeholder="Escriba las sucursales, separado por ;"></textarea>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="tx_pro_provee">Proveedores:</label>
+						<div class="col-sm-10"> 
+						<textarea class="form-control" rows="3" id="tx_pro_provee" placeholder="Escriba sus proveedores, separado por ;"></textarea>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="tx_pro_obs">Observación:</label>
+						<div class="col-sm-10"> 
+						<textarea class="form-control" rows="3" id="tx_pro_obs" placeholder="Escriba una observación"></textarea>
+						</div>
+					</div>
+					-->
+					<div class="form-group"> 
+						<div class="col-sm-offset-2 col-sm-10">
+						<button class="btn btn-default"  type="button" id="co_guardar"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+						<button class="btn btn-default"  type="button" id="co_cerrar2"><span class="glyphicon glyphicon-off"></span> Cancelar</button>
+						</div>
+					</div>
+					<input type="hidden" id="tx_id_producto" name="tx_id_producto" value="">
+					</form>
+				</div>   
+			</div>  
+		</div>
+		<div id="dv_form_pedido" class="container" style="display: none;">
+			<br>
+			<div class="panel panel-default">
+				<div class="panel-heading">					
+					<div id="div_tit1" style="font-size: 15px;text-align: center;"><b>Enviar Consulta a Tienda</b></div>
+				</div>
+				<div class="panel-body">
+					<br>
+					<form class="form-horizontal" id="div_prim">
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="lst_item">Productos:</label>
+						<div class="col-sm-10"> 
+						<select id="lst_item" class="form-control" name="lst_item" size="5" style="width:100%;background: #FAFAD2!important;" >
+							
+						  </select>
+						</div>
+					</div>		
+					
+					<div class="form-group" >
+						<div id="dv_form-group" class="col-sm-12"> 
+							<button class="btn btn-default"  type="button" id="co_quitar"><span class="glyphicon glyphicon-remove"></span> Quitar</button>
+						</div>
+					</div>	
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="tx_celular"># Celular:</label>
+						<div class="col-sm-10"> 
+							<input type="text" class="form-control" id="tx_celular" placeholder="Escriba su número de celular">
+						</div>
+					</div>					
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="tx_correo">Correo:</label>
+						<div class="col-sm-10"> 
+						<input type="text" class="form-control" id="tx_correo" placeholder="Escriba su correo electrónico">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="tx_nombre">Nombre:</label>
+						<div class="col-sm-10"> 
+						<input type="text" class="form-control" id="tx_nombre" placeholder="Escriba su nombre">
+						</div>
+					</div>					
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="tx_obs">Observación:</label>
+						<div class="col-sm-10"> 
+						<textarea class="form-control" rows="3" id="tx_obs"></textarea>
+						</div>
+					</div>
+					
+					<div class="form-group"> 
+						<div class="col-sm-offset-2 col-sm-10">
+						<button class="btn btn-default"  type="button" id="co_leer"><span class="glyphicon glyphicon-floppy-disk"></span> Enviar</button>
+						<button class="btn btn-default"  type="button" id="co_cerrar1"><span class="glyphicon glyphicon-off"></span> Cancelar</button>
+						</div>
+					</div>
+					
+					</form>
+				</div>   
+			</div>  
+		</div>
+		<script id="bookTemplate" type="text/x-jQuery-tmpl">
+			<tr>
+				<td id="td_${id}" ><div><label>${nagbe}</label></div></td>
+				<td id="td_${id}" ><div><label>${espanio}</label></div></td>
+				<td>
+				<div>
+					<!--<button id="_cb1" onclick="add_item('${id}');" type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-ok"></span> Consultar</button>-->
+					<button id="_cb2" onclick="chek_item('${id}');" type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-plus"></span> Modi</button>
+					<button id="_cb3" rel='${foto}' type="button" class="imgpopop btn btn-warning btn-sm"><span class="glyphicon glyphicon-picture"></span> Ver</button>
+				</div>
+				</td>
+			</tr>
+		</script>
+	</div>
         <div id="div_msg_bts" class="modal fade" role="dialog" tabindex="-1">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -96,46 +535,26 @@
 				</div>
 			</div>
 		</div>
-        <div id="div_chechout_bts" class="modal fade" role="dialog" tabindex="-1">
+        <div id="div_img_bts" class="modal fade" role="dialog" tabindex="-1">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title" id="tx_tit_mensaje">Detalle de Palabra</h4>
+						<h4 class="modal-title" id="tx_tit_mensaje">IMAGEN</h4>
 					</div>
-					<div class="modal-body">					
-								<form role="form">
-									<div class="form-group">
-										<label class="control-label col-sm-2">Ngabe:</label>
-										<div class="col-sm-10"> 
-											<input type="text" class="form-control" id="tx_ngabe"  >
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2">Español:</label>
-										<div class="col-sm-10"> 
-											<input type="text" class="form-control" id="tx_espanio"  >
-										</div>
-									</div>	
-									<div class="form-group">
-										<label class="control-label col-sm-2">Descripción:</label>
-										<div class="col-sm-10"> 
-											<input type="text" class="form-control" id="tx_modelo" readonly >
-										</div>
-									</div>
-								</form>
-
+					<div class="modal-body">
+						<form role="form">
+							<div class="form-group" style="text-align:center">
+								<img id="bts_img" width="300" height="300">
+								<div class="form-control-label"></div>
+							</div>
+						</form>
 					</div>
-					<div class="modal-footer">						
-						<button id="btn_checkout" type="button" class="btn btn-default" data-dismiss="modal" autofocus><span class="glyphicon glyphicon-ok"></span> Guardar</button>
-						<button class="btn btn-default"  type="button"  data-dismiss="modal" id="co_cancelar"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+					<div class="modal-footer">
+						<button type="button" class="btn " data-dismiss="modal" autofocus><span class=''></span>Ok</button>
 					</div>
 				</div>
 			</div>
-		</div>
-	<input type="hidden" id="tx_id_parking" name="tx_id_parking" value="">
-	<input type="hidden" id="tx_numero" name="tx_numero" value="">	
-	<input type="hidden" id="tx_check_in_out" name="tx_check_in_out" value="">
-
-	</body>
+		</div> 
+  </body>
 </html>
