@@ -18,8 +18,8 @@ $(document).keydown(function(e) {
 //~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*	
 $(document).ready(function(){
 	
-
 $( "#tmp1" ).load("http://taykuku.de/npmod1000/index.php");
+
 	$('.btn-expand-collapse').click(function(e) {
 		$('.navbar-primary').toggleClass('collapsed');
 	});
