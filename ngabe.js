@@ -19,7 +19,7 @@ $(document).keydown(function(e) {
 $(document).ready(function(){
 	
 
-$( "#tmp1" ).load( "https://taykuku.de/npmod1000/index.php" );
+$( "#tmp1" ).load("https://taykuku.de/npmod1000/index.php");
 	$('.btn-expand-collapse').click(function(e) {
 		$('.navbar-primary').toggleClass('collapsed');
 	});
