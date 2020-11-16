@@ -1,0 +1,20 @@
+		//var cabecera = "<table>";
+		var cabecera = "<form role='form' class='form-horizontal'>";
+		for (i=0; i< detal_lineal.length; i++){
+			detal_lineal_row = detal_lineal[i];
+			detal_lineal_row = detal_lineal_row.replace(":","</label><div class='col-sm-6'>")
+			 cabecera += "<div class='form-group'><label class='control-label col-sm-3'>"+detal_lineal_row+"</div></div>";
+			 
+		}
+		alert(cabecera);
+		cabecera += "</form>";
+		
+		
+				var cabecera = "<table border=0 cellpadding='2' cellpadding='2'>";
+		
+		for (i=0; i< detal_lineal.length; i++){
+			detal_lineal_row = detal_lineal[i];
+			detal_lineal_row = detal_lineal_row.replace(":","</th><td style='width:350px;'>")
+			 cabecera += "<tr><th style='width:75px;text-align:right;'>"+detal_lineal_row+"</td></tr>";
+			 
+		}
